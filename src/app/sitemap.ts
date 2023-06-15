@@ -5,5 +5,5 @@ export default async function sitemap() {
 		url: `${siteConfig.url}${nav.route}`,
 		lastModified: new Date().toISOString().split('T')[0],
 	}));
-	return [...routes];
+	return [siteConfig.url, ...routes];
 }
