@@ -7,11 +7,6 @@ export const siteConfig = {
 	url: 'https://sendzha.com',
 	mainNav: [
 		{
-			title: 'Blog',
-			route: '/blog',
-			isDisabled: true,
-		},
-		{
 			title: 'Projects',
 			route: '/projects',
 		},

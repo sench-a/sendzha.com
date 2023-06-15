@@ -2,18 +2,18 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { siteConfig } from '@/config/siteConfig';
+import { siteConfig } from '@/config/site';
 import { LayoutGroup, motion } from 'framer-motion';
 import { cn } from '@/lib/cn';
 
 export default function Nav() {
 	let pathname = usePathname();
 	return (
-		<nav className="fade relative -mx-3 flex flex-row items-center space-x-6 py-3">
+		<nav className="fade relative flex flex-row items-center space-x-6 py-3">
 			<LayoutGroup>
 				{siteConfig.mainNav.map((nav, index) => {
 					const isActiveRoute = nav.route === pathname;
-					return !nav.isDisabled ? (
+					return (
 						<Link
 							key={index}
 							href={nav.route}
@@ -37,8 +37,6 @@ export default function Nav() {
 								) : null}
 							</span>
 						</Link>
-					) : (
-						<></>
 					);
 				})}
 			</LayoutGroup>

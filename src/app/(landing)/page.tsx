@@ -1,4 +1,4 @@
-import { siteConfig } from '@/config/siteConfig';
+import { siteConfig } from '@/config/site';
 import Link from 'next/link';
 import ReactWrapBalancer from 'react-wrap-balancer';
 
@@ -19,19 +19,15 @@ export default function HomePage() {
 					</p>
 
 					<nav className="mt-8 flex flex-col items-center gap-4 animate-fade-in">
-						{siteConfig.mainNav.map((nav, index) =>
-							!nav.isDisabled ? (
-								<Link
-									key={index}
-									href={nav.route}
-									className="w-full py-2.5 text-xl lg:text-2xl duration-500 text-zinc-300 hover:text-white font-semibold border border-zinc-600 rounded-lg"
-								>
-									{nav.title}
-								</Link>
-							) : (
-								<></>
-							),
-						)}
+						{siteConfig.mainNav.map((nav, index) => (
+							<Link
+								key={index}
+								href={nav.route}
+								className="w-full py-2.5 text-xl lg:text-2xl duration-500 text-zinc-300 hover:text-white font-semibold border border-zinc-600 rounded-lg"
+							>
+								{nav.title}
+							</Link>
+						))}
 					</nav>
 				</div>
 			</section>

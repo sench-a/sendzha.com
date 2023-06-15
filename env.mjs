@@ -17,8 +17,9 @@ export const env = createEnv({
     * 💡 You'll get type errors if these are not prefixed with NEXT_PUBLIC_.
     */
     client: {
-        NEXT_PUBLIC_SUPABASE_URL:  z.string().min(1),
-        NEXT_PUBLIC_SUPABASE_API_KEY:  z.string().min(1),
+        NEXT_PUBLIC_SUPABASE_URL: z.string().min(1),
+        NEXT_PUBLIC_SUPABASE_API_KEY: z.string().min(1),
+        NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: z.string().min(1),
      },
     /*
     * Due to how Next.js bundles environment variables on Edge and Client,
@@ -31,7 +32,8 @@ export const env = createEnv({
         MAILCHIMP_SERVER: process.env.MAILCHIMP_SERVER,
         MAILCHIMP_AUDIENCE_ID: process.env.MAILCHIMP_AUDIENCE_ID,
         NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
-        NEXT_PUBLIC_SUPABASE_API_KEY: process.env.NEXT_PUBLIC_SUPABASE_API_KEY
+        NEXT_PUBLIC_SUPABASE_API_KEY: process.env.NEXT_PUBLIC_SUPABASE_API_KEY,
+        NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID
     }
 })
 

@@ -1,4 +1,4 @@
-import { siteConfig } from '@/config/siteConfig';
+import { siteConfig } from '@/config/site';
 import { Link } from 'lucide-react';
 import type { Metadata } from 'next';
 
