@@ -32,7 +32,8 @@ export const siteConfig = {
 		{
 			title: 'STP Service',
 			link: 'https://stpservice.ee',
-			description: 'Car repair service based in Tallinn, Estonia',
+			description:
+				'Full-stack website for a car repair service based in Tallinn, Estonia',
 		},
 	],
 };
