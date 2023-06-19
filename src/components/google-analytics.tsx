@@ -24,7 +24,7 @@ export default function GoogleAnalytics({
 		<>
 			<Script
 				src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
-				strategy="afterInteractive"
+				strategy="worker"
 			/>
 			<Script
 				id="google-analytics"
