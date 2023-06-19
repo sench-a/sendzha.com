@@ -8,6 +8,7 @@ import GoogleAnalytics from '@/components/google-analytics';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
+	metadataBase: new URL(siteConfig.url),
 	title: {
 		default: siteConfig.name,
 		template: `%s | ${siteConfig.name}`,
@@ -24,12 +25,24 @@ export const metadata: Metadata = {
 	twitter: {
 		title: siteConfig.name,
 		description: siteConfig.description,
-		images: [`${siteConfig.url}/opengraph-image.png`],
-		creator: '@sendzha_',
 		card: 'summary_large_image',
 	},
 	icons: {
 		shortcut: '/favicon.ico',
+	},
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-video-preview': -1,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+		},
+	},
+	verification: {
+		google: 'google',
 	},
 	keywords: ['Next.js', 'Vercel', 'Websites', 'Sexy', 'Full-stack'],
 	authors: [
@@ -38,8 +51,13 @@ export const metadata: Metadata = {
 			url: siteConfig.url,
 		},
 	],
+	category: 'portfolio',
 	creator: siteConfig.name,
-	metadataBase: new URL(siteConfig.url),
+	publisher: siteConfig.name,
+	generator: 'Next.js',
+	applicationName: 'Next.js',
+	referrer: 'origin-when-cross-origin',
+	colorScheme: 'dark',
 };
 
 interface RootLayoutProps {
@@ -49,7 +67,6 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en">
-			<head />
 			<GoogleAnalytics
 				GOOGLE_ANALYTICS_ID={env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}
 			/>

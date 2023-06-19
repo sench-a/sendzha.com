@@ -1,4 +1,5 @@
 import { siteConfig } from '@/config/site';
+import { NextPage } from 'next';
 import Link from 'next/link';
 import ReactWrapBalancer from 'react-wrap-balancer';
 

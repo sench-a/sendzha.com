@@ -1,5 +1,5 @@
 import { siteConfig } from '@/config/site';
-import { Metadata } from 'next';
+import { Metadata, NextPage } from 'next';
 
 export const metadata: Metadata = {
 	title: 'Contact',

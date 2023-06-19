@@ -1,6 +1,7 @@
 import { siteConfig } from '@/config/site';
+import { MetadataRoute } from 'next';
 
-export default async function sitemap() {
+export default function sitemap(): MetadataRoute.Sitemap {
 	const home = {
 		url: siteConfig.url,
 		lastModified: new Date().toISOString().split('T')[0],
