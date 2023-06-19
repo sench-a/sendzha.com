@@ -28,7 +28,7 @@ export default function GoogleAnalytics({
 			/>
 			<Script
 				id="google-analytics"
-				strategy="afterInteractive"
+				strategy="worker"
 				dangerouslySetInnerHTML={{
 					__html: `
                     window.dataLayer = window.dataLayer || [];

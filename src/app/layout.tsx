@@ -1,11 +1,12 @@
 import './globals.css';
 import { Metadata } from 'next';
+import Script from 'next/script';
 import { inter } from '@/lib/fonts';
 import { env } from '@/env.mjs';
 import { siteConfig } from '@/config/site';
 import { Particles } from '@/components/particles';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
-import Script from 'next/script';
+import GoogleAnalytics from '@/components/google-analytics';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
@@ -67,20 +68,8 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en">
-			<Script
-				id="google-analytics"
-				strategy="worker"
-				dangerouslySetInnerHTML={{
-					__html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){window.dataLayer.push(arguments);}
-                    gtag('js', new Date());
-
-                    gtag('config', '${env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}', {
-                        page_path: window.location.pathname
-                    });
-                `,
-				}}
+			<GoogleAnalytics
+				GOOGLE_ANALYTICS_ID={env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}
 			/>
 			<body className={inter.className}>
 				<VercelAnalytics />
