@@ -1,5 +1,5 @@
 import './globals.css';
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import { inter } from '@/lib/fonts';
 import { env } from '@/env.mjs';
 import { siteConfig } from '@/config/site';

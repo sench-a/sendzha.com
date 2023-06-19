@@ -9,6 +9,7 @@ interface DashboardLayoutProps {
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
 	return (
 		<html>
+			<head />
 			<body>
 				<header className="px-4 xl:px-8 duration-500">
 					<nav className="h-24 flex flex-row items-center justify-between">

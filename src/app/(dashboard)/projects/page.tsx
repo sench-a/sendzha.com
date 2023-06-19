@@ -1,6 +1,6 @@
 import { siteConfig } from '@/config/site';
 import { Link } from 'lucide-react';
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'Projects',
