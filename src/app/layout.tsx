@@ -1,15 +1,17 @@
-import '../globals.css';
-import { inter } from '@/lib/fonts';
+import './globals.css';
 import type { Metadata } from 'next';
-import { Particles } from '@/components/particles';
-import { siteConfig } from '@/config/site';
-import { Analytics } from '@vercel/analytics/react';
-import Script from 'next/script';
+import { inter } from '@/lib/fonts';
 import { env } from '@/env.mjs';
+import { siteConfig } from '@/config/site';
+import { Particles } from '@/components/particles';
 import GoogleAnalytics from '@/components/google-analytics';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
-	title: siteConfig.name,
+	title: {
+		default: siteConfig.name,
+		template: `%s | ${siteConfig.name}`,
+	},
 	description: siteConfig.description,
 	openGraph: {
 		title: siteConfig.name,
@@ -18,6 +20,16 @@ export const metadata: Metadata = {
 		siteName: siteConfig.name,
 		locale: 'en',
 		type: 'website',
+	},
+	twitter: {
+		title: siteConfig.name,
+		description: siteConfig.description,
+		images: [`${siteConfig.url}/opengraph-image.png`],
+		creator: '@sendzha_',
+		card: 'summary_large_image',
+	},
+	icons: {
+		shortcut: '/favicon.ico',
 	},
 	keywords: ['Next.js', 'Vercel', 'Websites', 'Sexy', 'Full-stack'],
 	authors: [
@@ -41,7 +53,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				GOOGLE_ANALYTICS_ID={env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}
 			/>
 			<body className={inter.className}>
-				<Analytics />
+				<VercelAnalytics />
 				<Particles className="absolute inset-0 -z-10 opacity-80 select-none" />
 				{children}
 			</body>
