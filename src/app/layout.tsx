@@ -6,6 +6,7 @@ import { siteConfig } from '@/config/site';
 import { Particles } from '@/components/particles';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import Script from 'next/script';
+import GoogleAnalytics from '@/components/google-analytics';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
@@ -67,22 +68,8 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en">
-			<Script
-				id="google-analytics"
-				strategy="afterInteractive"
-				dangerouslySetInnerHTML={{
-					__html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){window.dataLayer.push(arguments);}
-                    gtag('js', new Date());
-
-                    gtag('config', '${env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}', {
-                        page_path: window.location.pathname
-                    });
-                `,
-				}}
-			/>
-			<body className={pretendard.className}>
+			<GoogleAnalytics id={env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
+			<body className={inter.className}>
 				<VercelAnalytics />
 				<Particles className="absolute inset-0 -z-10 opacity-80 select-none" />
 				{children}

@@ -1,4 +1,6 @@
 import { siteConfig } from '@/config/site';
+import { cn } from '@/lib/cn';
+import { pretendard } from '@/public/fonts/fonts';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import ReactWrapBalancer from 'react-wrap-balancer';
@@ -13,7 +15,12 @@ export default function HomePage() {
 						{siteConfig.name}
 					</h1>
 					<div className="h-px animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-					<p className="mt-4 text-zinc-400 font-light tracking-wide animate-fade-in text-xl lg:text-2xl">
+					<p
+						className={cn(
+							'mt-4 text-zinc-400 font-light tracking-wide animate-fade-in text-xl lg:text-2xl',
+							pretendard.className,
+						)}
+					>
 						<ReactWrapBalancer>
 							{siteConfig.description}
 						</ReactWrapBalancer>

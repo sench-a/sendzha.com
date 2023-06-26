@@ -28,7 +28,7 @@ export default function ProjectsPage() {
 								</div>
 							</span>
 
-							<span className="text-lg sm:text-xl text-transparent tracking-normal bg-clip-text bg-gradient-to-r from-zinc-300/90 to-white">
+							<span className="text-lg sm:text-xl text-transparent bg-clip-text bg-gradient-to-r from-zinc-300/90 to-white">
 								{project.description}
 							</span>
 						</a>
