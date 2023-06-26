@@ -1,4 +1,4 @@
-import '../globals.css';
+import '@/style/globals.css';
 import BackButton from '@/components/back-button';
 import Nav from '@/components/nav';
 

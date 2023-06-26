@@ -21,16 +21,11 @@ export default function GoogleAnalytics({
 	}, [pathname, searchParams, GOOGLE_ANALYTICS_ID]);
 
 	return (
-		<>
-			<Script
-				src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
-				strategy="worker"
-			/>
-			<Script
-				id="google-analytics"
-				strategy="worker"
-				dangerouslySetInnerHTML={{
-					__html: `
+		<Script
+			id="google-analytics"
+			strategy="afterInteractive"
+			dangerouslySetInnerHTML={{
+				__html: `
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){window.dataLayer.push(arguments);}
                     gtag('js', new Date());
@@ -39,8 +34,7 @@ export default function GoogleAnalytics({
                         page_path: window.location.pathname
                     });
                 `,
-				}}
-			/>
-		</>
+			}}
+		/>
 	);
 }

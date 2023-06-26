@@ -13,7 +13,7 @@ export default function HomePage() {
 						{siteConfig.name}
 					</h1>
 					<div className="h-px animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-					<p className="mt-4 text-zinc-400 animate-fade-in text-xl lg:text-2xl">
+					<p className="mt-4 text-zinc-400 font-light tracking-wide animate-fade-in text-xl lg:text-2xl">
 						<ReactWrapBalancer>
 							{siteConfig.description}
 						</ReactWrapBalancer>
@@ -24,9 +24,11 @@ export default function HomePage() {
 							<Link
 								key={index}
 								href={nav.route}
-								className="w-full py-2.5 text-xl lg:text-2xl duration-500 text-zinc-300 hover:text-white font-semibold border border-zinc-600 rounded-sm"
+								className="w-full p-[1px] text-xl lg:text-2xl duration-500 text-zinc-300 hover:text-white font-semibold bg-gradient-to-b from-white to-white/40 rounded-lg"
 							>
-								{nav.title}
+								<p className="py-2.5 h-full w-full bg-black rounded-lg">
+									{nav.title}
+								</p>
 							</Link>
 						))}
 					</nav>
