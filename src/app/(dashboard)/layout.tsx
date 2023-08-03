@@ -10,7 +10,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 	return (
 		<>
 			<header className="px-4 xl:px-8 duration-500">
-				<nav className="h-24 flex flex-row items-center justify-between">
+				<nav className="h-24 flex flex-row items-center justify-between max-w-screen-2xl mx-auto">
 					<BackButton />
 					<Nav />
 				</nav>

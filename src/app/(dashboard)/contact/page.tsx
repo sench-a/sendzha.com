@@ -1,5 +1,5 @@
 import { siteConfig } from '@/config/site';
-import { Metadata, NextPage } from 'next';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'Contact',
@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
 	return (
-		<div className="container px-4 mx-auto">
+		<div className="max-w-screen-2xl px-4 2xl:px-0 mx-auto duration-500">
 			<div className="flex flex-col items-center">
-				<main className="grid w-full grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-16 mx-auto">
+				<main className="grid w-full grid-cols-1 sm:grid-cols-2 gap-8 mx-auto">
 					{siteConfig.links.map((link, index) => (
 						<a
 							key={index}
@@ -17,19 +17,23 @@ export default function ContactPage() {
 							target="_blank"
 							className="p-4 sm:p-12 relative flex flex-col items-center gap-4 duration-700 border border-zinc-600 rounded-lg"
 						>
+							{/* GRADIENT LINE */}
 							<span
 								className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
 								aria-hidden="true"
 							/>
-							<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
+							{/* CONTACT ICON */}
+							<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-500 border rounded-full text-zinc-200 border-zinc-500 bg-zinc-900">
 								{link.icon}
 							</span>{' '}
 							<div className="z-10 flex flex-col items-center">
-								<span className="text-xl font-medium duration-150 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
+								{/* CONTACT LABEL */}
+								<span className="text-xl lg:text-3xl text-zinc-200 group-hover:text-white font-display font-medium duration-500">
 									{link.label}
 								</span>
-								<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
-									{link.title}
+								{/* CONTACT TYPE */}
+								<span className="mt-4 text-sm lg:text-lg text-center text-zinc-400 group-hover:text-zinc-200 duration-500">
+									{link.role}
 								</span>
 							</div>
 						</a>

@@ -18,13 +18,13 @@ export const siteConfig = {
 	links: [
 		{
 			icon: <Mail size={20} />,
-			title: 'Business email',
+			role: 'Business email',
 			label: 'poulpawker@gmail.com',
 		},
 		{
 			icon: <Github size={20} />,
 			href: 'https://github.com/sench-a',
-			title: 'Github',
+			role: 'Github',
 			label: 'sench-a',
 		},
 	],
@@ -33,7 +33,13 @@ export const siteConfig = {
 			title: 'STP Service',
 			link: 'https://stpservice.ee',
 			description:
-				'Full-stack website for a car repair service based in Tallinn, Estonia',
+				'Website for a car repair service based in Tallinn, Estonia',
+		},
+		{
+			title: 'Clouder Club',
+			link: 'https://clouderclub.com',
+			description:
+				'Website for a hookah lounge & catering based in Tallinn, Estonia',
 		},
 	],
 };

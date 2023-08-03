@@ -1,9 +1,8 @@
-import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/cn';
-import { pretendard } from '@/public/fonts/fonts';
-import { NextPage } from 'next';
 import Link from 'next/link';
 import ReactWrapBalancer from 'react-wrap-balancer';
+import { cn } from '@/lib/cn';
+import { siteConfig } from '@/config/site';
+import { pretendard } from '@/public/fonts/fonts';
 
 export default function HomePage() {
 	return (
@@ -31,11 +30,9 @@ export default function HomePage() {
 							<Link
 								key={index}
 								href={nav.route}
-								className="w-full p-[1px] text-xl lg:text-2xl duration-500 text-zinc-300 hover:text-white font-semibold bg-gradient-to-b from-white to-white/40 rounded-lg"
+								className="w-full py-2.5 text-xl lg:text-2xl first:bg-white first:text-black/70 first:hover:text-black text-zinc-300 hover:text-white border border-white font-semibold rounded-lg duration-500"
 							>
-								<p className="py-2.5 h-full w-full bg-black rounded-lg">
-									{nav.title}
-								</p>
+								{nav.title}
 							</Link>
 						))}
 					</nav>
