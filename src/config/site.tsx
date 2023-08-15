@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
 	name: 'Sendzha',
-	description: 'I make full-stack web applications',
+	description: 'Next.js developer',
 	url: 'https://sendzha.com',
 	mainNav: [
 		{
@@ -47,7 +47,7 @@ export const siteConfig = {
 			id: 'personal',
 			title: 'Rebell',
 			link: 'https://rb.sendzha.com',
-			description: 'An example full-stack e-commerce app.',
+			description: 'Full-stack e-commerce app.',
 		},
 	],
 };

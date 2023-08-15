@@ -33,7 +33,9 @@ export const ProjectCard = ({
 				/>
 			</div>
 
-			<p className="text-lg sm:text-xt">{description}</p>
+			<p className="text-md sm:text-xl whitespace-pre-wrap">
+				{description}
+			</p>
 		</a>
 	);
 };
