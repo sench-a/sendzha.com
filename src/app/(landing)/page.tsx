@@ -30,7 +30,7 @@ export default function HomePage() {
 							<Link
 								key={index}
 								href={nav.route}
-								className="w-full py-2.5 text-xl lg:text-2xl first:bg-white first:text-black/70 first:hover:text-black text-zinc-300 hover:text-white border border-white font-semibold rounded-lg duration-500"
+								className="w-full py-2.5 text-xl lg:text-2xl first:bg-white first:hover:bg-muted first:text-black first:hover:text-black text-zinc-300 hover:text-white border border-white font-semibold rounded-lg duration-500"
 							>
 								{nav.title}
 							</Link>

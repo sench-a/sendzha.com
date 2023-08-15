@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
 	name: 'Sendzha',
-	description: 'I make sexy websites',
+	description: 'I make full-stack web applications',
 	url: 'https://sendzha.com',
 	mainNav: [
 		{
@@ -30,16 +30,24 @@ export const siteConfig = {
 	],
 	projects: [
 		{
+			id: 'freelance',
 			title: 'STP Service',
 			link: 'https://stpservice.ee',
 			description:
 				'Website for a car repair service based in Tallinn, Estonia',
 		},
 		{
+			id: 'freelance',
 			title: 'Clouder Club',
 			link: 'https://clouderclub.com',
 			description:
 				'Website for a hookah lounge & catering based in Tallinn, Estonia',
+		},
+		{
+			id: 'personal',
+			title: 'Rebell',
+			link: 'https://rb.sendzha.com',
+			description: 'An example full-stack e-commerce app.',
 		},
 	],
 };
