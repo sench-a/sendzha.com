@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
 	return (
-		<div className="max-w-screen-2xl px-4 2xl:px-0 mx-auto duration-500">
+		<section className="max-w-screen-lg 2xl:px-0 mx-auto duration-500">
 			<div className="flex flex-col items-center">
-				<main className="grid w-full grid-cols-1 sm:grid-cols-2 gap-8 mx-auto">
+				<main className="grid w-full grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
 					{siteConfig.links.map((link, index) => (
 						<a
 							key={index}
@@ -25,14 +25,15 @@ export default function ContactPage() {
 							{/* CONTACT ICON */}
 							<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-500 border rounded-full text-zinc-200 border-zinc-500 bg-zinc-900">
 								{link.icon}
-							</span>{' '}
+							</span>
+
 							<div className="z-10 flex flex-col items-center">
 								{/* CONTACT LABEL */}
-								<span className="text-xl lg:text-3xl text-zinc-200 group-hover:text-white font-display font-medium duration-500">
+								<span className="text-xl sm:text-2xl lg:text-3xl text-zinc-200 group-hover:text-white font-display font-medium duration-500">
 									{link.label}
 								</span>
 								{/* CONTACT TYPE */}
-								<span className="mt-4 text-sm lg:text-lg text-center text-zinc-400 group-hover:text-zinc-200 duration-500">
+								<span className="mt-4 text-sm md:text-md lg:text-lg text-center text-zinc-400 group-hover:text-zinc-200 duration-500">
 									{link.role}
 								</span>
 							</div>
@@ -40,6 +41,6 @@ export default function ContactPage() {
 					))}
 				</main>
 			</div>
-		</div>
+		</section>
 	);
 }

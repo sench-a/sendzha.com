@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
 	name: 'Sendzha',
-	description: 'Next.js developer',
+	description: 'Building web apps with Next.js',
 	url: 'https://sendzha.com',
 	mainNav: [
 		{
@@ -32,14 +32,13 @@ export const siteConfig = {
 		{
 			id: 'freelance',
 			title: 'STP Service',
-			link: 'https://stpservice.ee',
-			description:
-				'Website for a car repair service based in Tallinn, Estonia',
+			link: 'https://stpservice.ee/eng',
+			description: 'Website for a car repair service based in Tallinn, Estonia',
 		},
 		{
 			id: 'freelance',
 			title: 'Clouder Club',
-			link: 'https://clouderclub.com',
+			link: 'https://clouderclub.com/en/catering',
 			description:
 				'Website for a hookah lounge & catering based in Tallinn, Estonia',
 		},

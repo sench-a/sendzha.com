@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
 	return (
-		<div className="px-4">
+		<section className="h-screen">
 			<main className="grid w-full max-w-2xl gap-16 mx-auto">
 				<div className="space-y-4">
 					<h2 className="text-3xl md:text-4xl text-white font-bold indent-4 duration-500">
@@ -45,6 +45,6 @@ export default function ProjectsPage() {
 						))}
 				</div>
 			</main>
-		</div>
+		</section>
 	);
 }

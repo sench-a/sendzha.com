@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import ReactWrapBalancer from 'react-wrap-balancer';
-import { cn } from '@/lib/cn';
 import { siteConfig } from '@/config/site';
 import { pretendard } from '@/public/fonts/fonts';
+import { cn } from '@/lib/cn';
+
+export const runtime = 'edge';
 
 export default function HomePage() {
 	return (
-		<main className="h-screen">
+		<main className={cn('h-screen', pretendard.className)}>
 			<section className="flex flex-col h-screen w-screen px-6 items-center justify-center">
 				<div className="text-center">
 					<div className="h-px animate-glow animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
@@ -14,15 +16,8 @@ export default function HomePage() {
 						{siteConfig.name}
 					</h1>
 					<div className="h-px animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-					<p
-						className={cn(
-							'mt-4 text-zinc-400 font-light tracking-wide animate-fade-in text-xl lg:text-2xl',
-							pretendard.className,
-						)}
-					>
-						<ReactWrapBalancer>
-							{siteConfig.description}
-						</ReactWrapBalancer>
+					<p className="mt-4 text-zinc-400 font-light tracking-wide animate-fade-in text-xl lg:text-2xl">
+						<ReactWrapBalancer>{siteConfig.description}</ReactWrapBalancer>
 					</p>
 
 					<nav className="mt-8 flex flex-col items-center gap-4 animate-fade-in">

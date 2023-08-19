@@ -1,11 +1,10 @@
-import '@/style/globals.css';
 import { Metadata } from 'next';
-import Script from 'next/script';
 import { Particles } from '@/components/particles';
+import { GoogleAnalytics } from '@/components/google-analytics';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
-import { env } from '@/env.mjs';
 import { siteConfig } from '@/config/site';
 import { inter } from '@/public/fonts/fonts';
+import '@/style/globals.css';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
 	verification: {
 		google: 'google',
 	},
-	keywords: ['Next.js', 'Vercel', 'Websites', 'Sexy', 'Full-stack'],
+	keywords: ['Next.js', 'Vercel', 'Web', 'Apps', 'Sexy', 'Full-stack'],
 	authors: [
 		{
 			name: siteConfig.name,
@@ -67,20 +66,8 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en">
-			<Script id="google-analytics">
-				{`
-					window.dataLayer = window.dataLayer || [];
-					function gtag(){dataLayer.push(arguments);}
-					gtag('js', new Date());
-			
-					gtag('config', '${env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
-				`}
-			</Script>
-			<Script
-				src={`https://www.googletagmanager.com/gtag/js?id=${env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
-			/>
-
 			<body className={inter.className}>
+				<GoogleAnalytics />
 				<VercelAnalytics />
 				<Particles className="absolute inset-0 -z-10 opacity-80 select-none" />
 				{children}

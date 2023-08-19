@@ -2,12 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { siteConfig } from '@/config/site';
 import { LayoutGroup, motion } from 'framer-motion';
+import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/cn';
 
-export default function Nav() {
-	let pathname = usePathname();
+export const Nav = () => {
+	const pathname = usePathname();
 	return (
 		<nav className="fade relative flex flex-row items-center space-x-6 py-3">
 			<LayoutGroup>
@@ -42,4 +42,4 @@ export default function Nav() {
 			</LayoutGroup>
 		</nav>
 	);
-}
+};
