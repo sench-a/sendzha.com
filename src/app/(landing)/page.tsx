@@ -1,13 +1,18 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import ReactWrapBalancer from 'react-wrap-balancer';
 import { siteConfig } from '@/config/site';
 import { pretendard } from '@/public/fonts/fonts';
 import { cn } from '@/lib/cn';
 
+export const metadata: Metadata = {
+	description: siteConfig.description,
+};
+
 export default function HomePage() {
 	return (
-		<main className="h-screen">
-			<section className="flex flex-col h-screen w-screen px-6 items-center justify-center">
+		<section className="h-screen">
+			<div className="flex flex-col h-screen w-screen px-6 items-center justify-center">
 				<div className={cn('text-center', pretendard.className)}>
 					<div className="h-px animate-glow animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 					<h1 className="font-extrabold text-7xl sm:text-8xl lg:text-9xl animate-title text-edge-outline text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 via-white to-zinc-300 whitespace-nowrap">
@@ -35,7 +40,7 @@ export default function HomePage() {
 						))}
 					</nav>
 				</div>
-			</section>
-		</main>
+			</div>
+		</section>
 	);
 }

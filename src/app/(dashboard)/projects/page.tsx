@@ -4,6 +4,7 @@ import { ProjectCard } from '@/components/project-card';
 
 export const metadata: Metadata = {
 	title: 'Projects',
+	description: 'Discover my projects',
 };
 
 export default function ProjectsPage() {
