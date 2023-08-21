@@ -1,6 +1,6 @@
 import '@/style/globals.css';
-import { BackButton } from '@/components/back-button';
 import { Nav } from '@/components/nav';
+import { BackButton } from '@/components/back-button';
 
 interface DashboardLayoutProps {
 	children: React.ReactNode;

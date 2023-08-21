@@ -1,5 +1,5 @@
 import { siteConfig } from '@/config/site';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'Contact',
@@ -13,8 +13,8 @@ export default function ContactPage() {
 					{siteConfig.links.map((link, index) => (
 						<a
 							key={index}
-							href={link.href ?? ''}
-							target="_blank"
+							href={link.href}
+							target={link.href ?? 'blank'}
 							className="p-4 sm:p-12 relative flex flex-col items-center gap-4 duration-700 border border-zinc-600 rounded-lg"
 						>
 							{/* GRADIENT LINE */}
@@ -29,13 +29,13 @@ export default function ContactPage() {
 
 							<div className="z-10 flex flex-col items-center">
 								{/* CONTACT LABEL */}
-								<span className="text-xl sm:text-2xl lg:text-3xl text-zinc-200 group-hover:text-white font-display font-medium duration-500">
+								<h3 className="text-xl sm:text-2xl lg:text-3xl text-zinc-200 group-hover:text-white font-display font-medium duration-500">
 									{link.label}
-								</span>
+								</h3>
 								{/* CONTACT TYPE */}
-								<span className="mt-4 text-sm md:text-md lg:text-lg text-center text-zinc-400 group-hover:text-zinc-200 duration-500">
+								<p className="mt-4 text-sm md:text-md lg:text-lg text-center text-zinc-400 group-hover:text-zinc-200 duration-500">
 									{link.role}
-								</span>
+								</p>
 							</div>
 						</a>
 					))}

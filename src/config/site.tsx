@@ -19,7 +19,7 @@ export const siteConfig = {
 		{
 			icon: <Mail size={20} />,
 			role: 'Business email',
-			label: 'poulpawker@gmail.com',
+			label: 'dev@sendzha.com',
 		},
 		{
 			icon: <Github size={20} />,
