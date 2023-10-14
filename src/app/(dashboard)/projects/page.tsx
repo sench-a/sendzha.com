@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
-import { ProjectCard } from '@/components/project-card';
+import { Link } from 'lucide-react';
 
 export const metadata: Metadata = {
 	title: 'Projects',
@@ -12,37 +12,32 @@ export default function ProjectsPage() {
 		<section className="h-screen">
 			<main className="grid w-full max-w-2xl gap-16 mx-auto">
 				<div className="space-y-4">
-					<h2 className="text-3xl md:text-4xl text-white font-bold indent-4 duration-500">
-						Personal Projects
-					</h2>
-					{siteConfig.projects
-						.filter((project) => project.id === 'personal')
-						.map((project, index) => (
-							<ProjectCard
-								key={index}
-								className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500/90 to-yellow-300 border-yellow-600"
-								link={project.link}
-								title={project.title}
-								description={project.description}
-							/>
-						))}
-				</div>
+					{siteConfig.projects.map((project, index) => {
+						if (project.disabled) return;
 
-				<div className="space-y-4">
-					<h2 className="text-3xl md:text-4xl text-white font-bold indent-4 duration-500">
-						Freelance Projects
-					</h2>
-					{siteConfig.projects
-						.filter((project) => project.id === 'freelance')
-						.map((project, index) => (
-							<ProjectCard
+						return (
+							<a
 								key={index}
-								className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300/90 to-white"
-								link={project.link}
-								title={project.title}
-								description={project.description}
-							/>
-						))}
+								href={project.link}
+								target="_blank"
+								className="relative flex flex-col gap-2 duration-700 group p-8 sm:p-12 text-zinc-200 border border-zinc-600 rounded-lg"
+							>
+								<div className="flex flex-r0w items-center gap-2">
+									<p className="text-2xl sm:text-3xl md:text-4xl font-extrabold">
+										{project.title}
+									</p>
+									<Link
+										size="20"
+										color="white"
+									/>
+								</div>
+
+								<p className="text-md sm:text-xl whitespace-pre-wrap">
+									{project.description}
+								</p>
+							</a>
+						);
+					})}
 				</div>
 			</main>
 		</section>

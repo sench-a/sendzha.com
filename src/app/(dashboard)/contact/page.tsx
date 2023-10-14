@@ -1,6 +1,7 @@
 import { siteConfig } from '@/config/site';
 import type { Metadata } from 'next';
 
+// ? Change OG and Twitter metadata
 export const metadata: Metadata = {
 	title: 'Contact',
 	description: 'dev@sendzha.com',

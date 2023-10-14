@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
 import { Particles } from '@/components/particles';
-import { GoogleAnalytics } from '@/components/google-analytics';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { siteConfig } from '@/config/site';
-import { inter } from '@/public/fonts/fonts';
+import { Inter } from 'next/font/google';
 import '@/style/globals.css';
 
 export const metadata: Metadata = {
@@ -62,6 +61,11 @@ export const metadata: Metadata = {
 	colorScheme: 'dark',
 };
 
+export const inter = Inter({
+	subsets: ['latin'],
+	display: 'swap',
+});
+
 interface RootLayoutProps {
 	children: React.ReactNode;
 }
@@ -70,7 +74,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<GoogleAnalytics />
 				<VercelAnalytics />
 				<Particles className="absolute inset-0 -z-10 opacity-80 select-none" />
 				{children}

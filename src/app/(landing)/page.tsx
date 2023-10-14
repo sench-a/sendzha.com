@@ -2,7 +2,6 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import ReactWrapBalancer from 'react-wrap-balancer';
 import { siteConfig } from '@/config/site';
-import { pretendard } from '@/public/fonts/fonts';
 import { cn } from '@/lib/cn';
 
 export const metadata: Metadata = {
@@ -13,7 +12,7 @@ export default function HomePage() {
 	return (
 		<section className="h-screen">
 			<div className="flex flex-col h-screen w-screen px-6 items-center justify-center">
-				<div className={cn('text-center', pretendard.className)}>
+				<div className={cn('text-center')}>
 					<div className="h-px animate-glow animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 					<h1 className="font-extrabold text-7xl sm:text-8xl lg:text-9xl animate-title text-edge-outline text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 via-white to-zinc-300 whitespace-nowrap">
 						{siteConfig.name}
@@ -23,12 +22,7 @@ export default function HomePage() {
 						<ReactWrapBalancer>{siteConfig.description}</ReactWrapBalancer>
 					</p>
 
-					<nav
-						className={cn(
-							'mt-8 flex flex-col items-center gap-4 animate-fade-in',
-							pretendard.className,
-						)}
-					>
+					<nav className={cn('mt-8 flex flex-col items-center gap-4 animate-fade-in')}>
 						{siteConfig.mainNav.map((nav, index) => (
 							<Link
 								key={index}
