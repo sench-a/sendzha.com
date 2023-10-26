@@ -1,4 +1,3 @@
-import '@/style/globals.css';
 import { Nav } from '@/components/nav';
 import { BackButton } from '@/components/back-button';
 
@@ -8,14 +7,14 @@ interface DashboardLayoutProps {
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
 	return (
-		<div className="px-4">
-			<header>
-				<nav className="h-32 flex flex-row items-center justify-between max-w-screen-lg mx-auto">
+		<>
+			<header className="px-4 max-w-screen-lg mx-auto">
+				<nav className="h-32 flex flex-row items-center justify-between">
 					<BackButton />
 					<Nav />
 				</nav>
 			</header>
-			{children}
-		</div>
+			<section className="px-4 max-w-screen-lg mx-auto">{children}</section>
+		</>
 	);
 }

@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import type { Metadata } from 'next';
-import ReactWrapBalancer from 'react-wrap-balancer';
 import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/cn';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	description: siteConfig.description,
@@ -12,24 +12,37 @@ export default function HomePage() {
 	return (
 		<section className="h-screen">
 			<div className="flex flex-col h-screen w-screen px-6 items-center justify-center">
-				<div className={cn('text-center')}>
+				<div className="text-center">
 					<div className="h-px animate-glow animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-					<h1 className="font-extrabold text-7xl sm:text-8xl lg:text-9xl animate-title text-edge-outline text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 via-white to-zinc-300 whitespace-nowrap">
+					<h1
+						className="font-black animate-title text-edge-outline text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 via-white to-zinc-300 whitespace-nowrap"
+						style={{
+							fontSize: 'clamp(72px, 10vw, 128px)',
+						}}
+					>
 						{siteConfig.name}
 					</h1>
 					<div className="h-px animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-					<p className="mt-4 text-zinc-400 font-light tracking-wide animate-fade-in text-xl lg:text-2xl">
-						<ReactWrapBalancer>{siteConfig.description}</ReactWrapBalancer>
+
+					<p className="mt-4 text-zinc-500 font-light tracking-wide animate-fade-in text-xl lg:text-2xl">
+						{siteConfig.description}
 					</p>
 
-					<nav className={cn('mt-8 flex flex-col items-center gap-4 animate-fade-in')}>
-						{siteConfig.mainNav.map((nav, index) => (
+					<nav className="mt-8 flex flex-col items-center gap-4 animate-fade-in">
+						{siteConfig.nav.map((nav, index) => (
 							<Link
-								key={index}
+								key={nav.route}
 								href={nav.route}
-								className="w-full py-2.5 text-xl lg:text-2xl first:bg-white first:hover:bg-white/90 first:text-black first:hover:text-black text-white hover:text-zinc-300 border border-white hover:border-zinc-300 font-semibold rounded-lg duration-500"
+								className="w-full last:border rounded-sm"
 							>
-								{nav.title}
+								<Button
+									variant="ghost"
+									className={cn('h-11 md:h-12 text-xl lg:text-2xl', {
+										'bg-white hover:bg-white/80 text-black': index === 0,
+									})}
+								>
+									{nav.title}
+								</Button>
 							</Link>
 						))}
 					</nav>

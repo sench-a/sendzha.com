@@ -4,29 +4,32 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { LayoutGroup, motion } from 'framer-motion';
 import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/cn';
+import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
 
 export const Nav = () => {
 	const pathname = usePathname();
 	return (
-		<nav className="fade relative flex flex-row items-center space-x-6 py-3">
+		<div className="fade relative flex flex-row items-center space-x-6 py-3">
 			<LayoutGroup>
-				{siteConfig.mainNav.map((nav, index) => {
+				{siteConfig.nav.map((nav) => {
 					const isActiveRoute = nav.route === pathname;
 					return (
 						<Link
-							key={index}
+							key={nav.route}
 							href={nav.route}
-							className={cn(
-								'flex items-center text-lg text-zinc-200 hover:text-white transition-all duration-500',
-								isActiveRoute && 'text-black hover:text-black',
-							)}
+							className="flex items-center text-base md:text-lg text-zinc-200"
 						>
-							<span className="relative px-3 py-1">
-								{nav.title}
+							<Button
+								variant="ghost"
+								className="relative px-3 py-1"
+							>
+								<p className={cn('z-10', { 'text-black': isActiveRoute })}>
+									{nav.title}
+								</p>
 								{nav.route === pathname ? (
 									<motion.div
-										className="absolute inset-0 z-[-1] rounded-md bg-white"
+										className="absolute inset-0 bg-white rounded-sm"
 										layoutId="sidebar"
 										transition={{
 											type: 'spring',
@@ -35,11 +38,11 @@ export const Nav = () => {
 										}}
 									/>
 								) : null}
-							</span>
+							</Button>
 						</Link>
 					);
 				})}
 			</LayoutGroup>
-		</nav>
+		</div>
 	);
 };

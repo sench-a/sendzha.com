@@ -3,27 +3,33 @@ import { Particles } from '@/components/particles';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { siteConfig } from '@/config/site';
 import { Inter } from 'next/font/google';
-import '@/style/globals.css';
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
 	title: {
-		default: siteConfig.name,
-		template: `%s | ${siteConfig.name}`,
+		default: siteConfig.title,
+		template: `%s | ${siteConfig.title}`,
 	},
 	description: siteConfig.description,
 	openGraph: {
-		title: siteConfig.name,
+		title: siteConfig.title,
 		description: siteConfig.description,
 		url: siteConfig.url,
 		siteName: siteConfig.name,
+		images: {
+			url: `${siteConfig.url}/opengraph-image.png`,
+			width: 1920,
+			height: 1080,
+		},
 		locale: 'en',
 		type: 'website',
 	},
 	twitter: {
-		title: siteConfig.name,
+		title: siteConfig.title,
 		description: siteConfig.description,
 		card: 'summary_large_image',
+		images: `${siteConfig.url}/opengraph-image.png`,
 	},
 	icons: {
 		icon: '/favicon.ico',
@@ -56,7 +62,7 @@ export const metadata: Metadata = {
 	creator: siteConfig.name,
 	publisher: siteConfig.name,
 	generator: 'Next.js',
-	applicationName: 'Next.js',
+	applicationName: 'sendzha',
 	referrer: 'origin-when-cross-origin',
 	colorScheme: 'dark',
 };
