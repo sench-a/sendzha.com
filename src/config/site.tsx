@@ -6,7 +6,6 @@ export const siteConfig = {
 	description: 'I turn caffeine and stress into code',
 	url: 'https://www.sendzha.com',
 	nav: [
-		{ title: 'Main Stack', route: '/tech-stack' },
 		{ title: 'Projects', route: '/projects' },
 		{ title: 'Contact', route: '/contact' },
 	],

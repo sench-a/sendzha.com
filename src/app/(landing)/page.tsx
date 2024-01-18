@@ -25,26 +25,28 @@ export default function HomePage() {
 				/>
 
 				<h2
-					className="mt-4 text-muted-foreground tracking-tight animate-fade-in"
+					className="mt-4 text-muted-foreground tracking-normal animate-fade-in"
 					style={{ fontSize: 'clamp(16px, 2.5vw, 20px)' }}
 				>
 					{siteConfig.description}
 				</h2>
 
 				<nav className="mt-8 space-y-4 animate-fade-in">
-					{siteConfig.nav.map((nav, index) => (
-						<Button
-							key={nav.route}
-							className={cn('last:border w-full', {
-								'bg-primary hover:bg-white/80 text-black': !index,
-							})}
-							variant="ghost"
-							size="lg"
-							asChild
-						>
-							<Link href={nav.route}>{nav.title}</Link>
-						</Button>
-					))}
+					{siteConfig.nav.map((nav, index) => {
+						return (
+							<Button
+								key={nav.route}
+								className={cn('last:border w-full', {
+									'bg-primary hover:bg-white/80 text-black': !index,
+								})}
+								variant="ghost"
+								size="lg"
+								asChild
+							>
+								<Link href={nav.route}>{nav.title}</Link>
+							</Button>
+						);
+					})}
 				</nav>
 			</main>
 		</section>
