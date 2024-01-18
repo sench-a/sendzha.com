@@ -1,44 +1,86 @@
-import { siteConfig } from '@/config/site';
+import { Icon, Icons } from '@/components/icons';
+import { Plus } from '@/components/plus';
 import type { Metadata } from 'next';
 
-// ? Change OG and Twitter metadata
 export const metadata: Metadata = {
 	title: 'Contact',
 	description: 'dev@sendzha.com',
 };
 
+const contact = [
+	{
+		type: 'Business email',
+		label: 'dev@sendzha.com',
+		href: 'mailto:dev@sendzha.com',
+		icon: 'mail',
+	},
+	{
+		type: 'Github',
+		label: 'sench-a',
+		href: 'https://github.com/sench-a',
+		icon: 'github',
+	},
+	{
+		icon: 'telegram',
+		type: 'Telegram',
+		label: '@aproskura1',
+	},
+
+	{
+		icon: 'instagram',
+		type: 'Instagram',
+		href: 'https://instagram.com/sendzh.a',
+		label: '@sendzh.a',
+	},
+];
+
 export default function ContactPage() {
 	return (
-		<main className="grid w-full grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
-			{siteConfig.links.map((link, index) => (
-				<a
-					key={index}
-					href={link.href}
-					target={link.href ?? 'blank'}
-					className="p-4 sm:p-12 relative flex flex-col items-center gap-4 duration-500 border rounded-sm"
-				>
-					{/* GRADIENT LINE */}
-					<span
-						className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 to-transparent"
-						aria-hidden="true"
-					/>
-					{/* CONTACT ICON */}
-					<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-500 border border-zinc-500 rounded-full text-zinc-200 bg-zinc-900">
-						{link.icon}
-					</span>
+		<ul className="grid md:grid-cols-2 w-full gap-8 pb-8">
+			{contact.map((link) => {
+				const Icon = Icons[link.icon as Icon];
 
-					<div className="z-10 flex flex-col items-center">
-						{/* CONTACT LABEL */}
-						<h3 className="text-xl sm:text-2xl lg:text-3xl text-zinc-200 group-hover:text-white font-display font-medium duration-500">
-							{link.label}
-						</h3>
-						{/* CONTACT TYPE */}
-						<p className="mt-4 text-sm md:text-md lg:text-lg text-center text-zinc-500 group-hover:text-zinc-200 duration-500">
-							{link.role}
-						</p>
-					</div>
-				</a>
-			))}
-		</main>
+				return (
+					<li
+						key={link.label}
+						className="relative animate-fade bg-card border"
+					>
+						<a
+							href={link.href}
+							target={link.href ?? 'blank'}
+							className="p-10 flex flex-col items-center gap-3"
+						>
+							<Plus />
+
+							<div
+								className="absolute w-px h-2/3 bg-gradient-to-b from-muted-foreground to-transparent"
+								aria-hidden="true"
+							/>
+
+							<div
+								role="icon"
+								className="relative z-10 flex items-center justify-center w-12 h-12 text-sm border border-muted-foreground bg-card rounded-full"
+							>
+								<Icon size={20} />
+							</div>
+
+							<h3
+								className="z-10 font-medium drop-shadow-sm tracking-tight"
+								style={{ fontSize: 'clamp(20px, 2.5vw, 24px)' }}
+							>
+								{link.label}
+							</h3>
+
+							<p
+								className="text-center text-muted-foreground"
+								style={{ fontSize: 'clamp(14px, 2.5vw, 16px)' }}
+							>
+								{link.type}
+							</p>
+						</a>
+					</li>
+				);
+			})}
+		</ul>
 	);
 }

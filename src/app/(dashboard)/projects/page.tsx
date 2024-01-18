@@ -1,51 +1,82 @@
+import Image from 'next/image';
+import { Plus } from '@/components/plus';
+import { Button } from '@/components/ui/button';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import type { Metadata } from 'next';
-import { siteConfig } from '@/config/site';
-import { Link } from 'lucide-react';
-import { Icons } from '@/components/icons';
 
 export const metadata: Metadata = {
 	title: 'Projects',
 	description: 'Discover my projects',
 };
 
+const projects = [
+	{
+		title: 'Ligne Roset Estonia',
+		link: 'https://www.ligneroset-estonia.ee',
+		image: '/projects/ligne-roset-estonia.png',
+	},
+	{
+		title: 'useTransition',
+		link: 'https://www.usetransition.com',
+		image: '/projects/usetransition.png',
+	},
+	{
+		title: 'STP Service',
+		link: 'https://www.stpservice.ee/ee',
+		image: '/projects/stp-service.png',
+	},
+];
+
 export default function ProjectsPage() {
 	return (
-		<main className="grid w-full max-w-2xl gap-16 mx-auto">
-			<div className="space-y-4">
-				{siteConfig.projects.map((project, index) => {
-					if (project.disabled) return;
+		<ul className="grid md:grid-cols-2 w-full gap-8 pb-8">
+			{projects.map((project) => {
+				return (
+					<li
+						key={project.title}
+						className="relative flex flex-col gap-4 p-4 border bg-card animate-fade"
+					>
+						<Plus />
 
-					return (
-						<a
-							key={index}
-							href={project.link}
-							target="_blank"
-							className="relative flex flex-col gap-3 duration-500 group p-8 sm:p-12 text-zinc-200 border rounded-sm"
-						>
-							<div className="flex flex-r0w items-center gap-3">
-								<p
-									className="text-2xl font-black"
-									style={{ fontSize: 'clamp(24px, 2.5vw, 36px)' }}
-								>
-									{project.title}
-								</p>
-
-								<Icons.link
-									size="20"
-									color="white"
-								/>
-							</div>
-
-							<p
-								className="text-zinc-500 whitespace-pre-wrap"
-								style={{ fontSize: 'clamp(16px, 2.5vw, 20px)' }}
+						<AspectRatio ratio={16 / 9}>
+							<a
+								href={project.link}
+								target="_blank"
 							>
-								{project.description}
-							</p>
-						</a>
-					);
-				})}
-			</div>
-		</main>
+								<Image
+									src={project.image}
+									alt={`${project.title} website thumbnail`}
+									className="bg-accent border opacity-90"
+									sizes="(max-width: 768px) 100vw, 33vw"
+									fill
+								/>
+							</a>
+						</AspectRatio>
+
+						<div className="px-1 flex flex-row items-center justify-between">
+							<h2
+								className="text-2xl font-bold tracking-tight"
+								style={{ fontSize: 'clamp(20px, 2.5vw, 24px)' }}
+							>
+								{project.title}
+							</h2>
+
+							<Button
+								asChild
+								size="sm"
+								className="w-fit text-base"
+							>
+								<a
+									href={project.link}
+									target="_blank"
+								>
+									Visit
+								</a>
+							</Button>
+						</div>
+					</li>
+				);
+			})}
+		</ul>
 	);
 }

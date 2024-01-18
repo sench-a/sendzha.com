@@ -1,6 +1,6 @@
 {
-    "name": "Sendzha",
-    "short_name": "Sendzha",
+    "name": "sendzha",
+    "short_name": "sendzha",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -11,15 +11,9 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
-        },
-        {
-            "url": "/safari-pinned-tab.svg",
-            "sizes": "150x150",
-            "type": "image/svg",
-            "rel": "mask-icon"
         }
     ],
-    "theme_color": "#000000",
-    "background_color": "#000000",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
     "display": "standalone"
 }

@@ -4,6 +4,7 @@ import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { siteConfig } from '@/config/site';
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
+import { geist } from '@/styles/fonts';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
@@ -43,9 +44,6 @@ export const metadata: Metadata = {
 		googleBot: {
 			index: true,
 			follow: true,
-			'max-video-preview': -1,
-			'max-image-preview': 'large',
-			'max-snippet': -1,
 		},
 	},
 	verification: {
@@ -67,11 +65,6 @@ export const metadata: Metadata = {
 	colorScheme: 'dark',
 };
 
-export const inter = Inter({
-	subsets: ['latin'],
-	display: 'swap',
-});
-
 interface RootLayoutProps {
 	children: React.ReactNode;
 }
@@ -79,7 +72,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={geist.className}>
 				<VercelAnalytics />
 				<Particles className="absolute inset-0 -z-10 opacity-80 select-none" />
 				{children}
