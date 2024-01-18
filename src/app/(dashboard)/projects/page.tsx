@@ -54,12 +54,7 @@ export default function ProjectsPage() {
 						</AspectRatio>
 
 						<div className="px-1 flex flex-row items-center justify-between">
-							<h2
-								className="text-2xl font-bold tracking-tight"
-								style={{ fontSize: 'clamp(20px, 2.5vw, 24px)' }}
-							>
-								{project.title}
-							</h2>
+							<h2 className="text-xl font-bold tracking-tight">{project.title}</h2>
 
 							<Button
 								asChild

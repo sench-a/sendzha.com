@@ -19,10 +19,10 @@ export const Nav = () => {
 					<Button
 						key={nav.route}
 						variant="ghost"
-						className="relative px-3 py-2"
-						style={{
-							fontSize: 'clamp(16px, 2.5vw, 18px)',
-						}}
+						className="relative px-3 py-2 text-base"
+						// style={{
+						// 	fontSize: 'clamp(16px, 2.5vw, 18px)',
+						// }}
 						asChild
 					>
 						<Link href={nav.route}>
