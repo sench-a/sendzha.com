@@ -26,7 +26,7 @@ export default function HomePage() {
 
 				<h2
 					className="mt-4 text-muted-foreground tracking-tight animate-fade-in"
-					style={{ fontSize: 'clamp(16px, 10vw, 20px)' }}
+					style={{ fontSize: 'clamp(16px, 2.5vw, 20px)' }}
 				>
 					{siteConfig.description}
 				</h2>

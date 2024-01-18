@@ -1,12 +1,9 @@
 import Link from 'next/link';
 import { Nav } from '@/components/nav';
 import { Icons } from '@/components/icons';
+import type { LayoutProps } from '@/types';
 
-interface DashboardLayoutProps {
-	children: React.ReactNode;
-}
-
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
+export default function DashboardLayout({ children }: LayoutProps) {
 	return (
 		<>
 			<header className="px-4 max-w-screen-lg mx-auto">

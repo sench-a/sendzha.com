@@ -54,12 +54,12 @@ export default function ProjectsPage() {
 						</AspectRatio>
 
 						<div className="px-1 flex flex-row items-center justify-between">
-							<h2 className="text-xl font-bold tracking-tight">{project.title}</h2>
+							<h2 className="text-xl font-bold tracking-tighter">{project.title}</h2>
 
 							<Button
 								asChild
 								size="sm"
-								className="w-fit text-base"
+								className="w-fit text-sm"
 							>
 								<a
 									href={project.link}

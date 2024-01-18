@@ -1,10 +1,10 @@
-import { Metadata } from 'next';
 import { Particles } from '@/components/particles';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { siteConfig } from '@/config/site';
-import { Inter } from 'next/font/google';
-import '@/styles/globals.css';
 import { geist } from '@/styles/fonts';
+import type { Metadata } from 'next';
+import type { LayoutProps } from '@/types';
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
@@ -60,16 +60,12 @@ export const metadata: Metadata = {
 	creator: siteConfig.name,
 	publisher: siteConfig.name,
 	generator: 'Next.js',
-	applicationName: 'sendzha',
+	applicationName: siteConfig.name,
 	referrer: 'origin-when-cross-origin',
 	colorScheme: 'dark',
 };
 
-interface RootLayoutProps {
-	children: React.ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: LayoutProps) {
 	return (
 		<html lang="en">
 			<body className={geist.className}>

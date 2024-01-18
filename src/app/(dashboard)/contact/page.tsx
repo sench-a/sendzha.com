@@ -53,7 +53,7 @@ export default function ContactPage() {
 							<Plus />
 
 							<div
-								className="absolute w-px h-2/3 bg-gradient-to-b from-muted-foreground to-transparent"
+								className="absolute w-px h-[120px] bg-gradient-to-b from-muted-foreground to-transparent"
 								aria-hidden="true"
 							/>
 
