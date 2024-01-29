@@ -1,6 +1,7 @@
-import Link from 'next/link';
+import { buttonVariants } from '@/components/ui/button';
+import { Button as NextUIButton } from '@nextui-org/button';
+import { Link as NextUILink } from '@nextui-org/link';
 import { siteConfig } from '@/config/site';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 export default function HomePage() {
@@ -34,17 +35,20 @@ export default function HomePage() {
 				<nav className="mt-8 space-y-4 animate-fade-in">
 					{siteConfig.nav.map((nav, index) => {
 						return (
-							<Button
+							<NextUIButton
 								key={nav.route}
-								className={cn('last:border w-full', {
-									'bg-primary hover:bg-white/80 text-black': !index,
-								})}
-								variant="ghost"
-								size="lg"
-								asChild
+								as={NextUILink}
+								href={nav.route}
+								className={cn(
+									buttonVariants({ variant: 'ghost', size: 'lg' }),
+									'last:border w-full',
+									{
+										'bg-primary hover:bg-white/80 text-black': !index,
+									},
+								)}
 							>
-								<Link href={nav.route}>{nav.title}</Link>
-							</Button>
+								{nav.title}
+							</NextUIButton>
 						);
 					})}
 				</nav>

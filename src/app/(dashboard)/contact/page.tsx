@@ -43,7 +43,7 @@ export default function ContactPage() {
 				return (
 					<li
 						key={link.label}
-						className="relative animate-fade bg-card border"
+						className="relative animate-fade bg-card border rounded-[4px]"
 					>
 						<a
 							href={link.href}

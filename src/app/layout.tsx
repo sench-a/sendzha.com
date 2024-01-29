@@ -1,9 +1,10 @@
+import { Providers } from '@/components/providers';
 import { Particles } from '@/components/particles';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { siteConfig } from '@/config/site';
 import { geist } from '@/styles/fonts';
-import type { Metadata } from 'next';
 import type { LayoutProps } from '@/types';
+import type { Metadata } from 'next';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -71,7 +72,8 @@ export default function RootLayout({ children }: LayoutProps) {
 			<body className={geist.className}>
 				<VercelAnalytics />
 				<Particles className="absolute inset-0 -z-10 opacity-80 select-none" />
-				{children}
+
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	);
