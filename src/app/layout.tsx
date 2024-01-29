@@ -1,4 +1,3 @@
-import { Providers } from '@/components/providers';
 import { Particles } from '@/components/particles';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { siteConfig } from '@/config/site';
@@ -73,7 +72,7 @@ export default function RootLayout({ children }: LayoutProps) {
 				<VercelAnalytics />
 				<Particles className="absolute inset-0 -z-10 opacity-80 select-none" />
 
-				<Providers>{children}</Providers>
+				{children}
 			</body>
 		</html>
 	);

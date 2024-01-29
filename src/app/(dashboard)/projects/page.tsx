@@ -58,7 +58,7 @@ export default function ProjectsPage() {
 								<Image
 									src={project.image}
 									alt={`${project.title} website thumbnail`}
-									className="object-cover object-center"
+									className="bg-accent object-cover object-center"
 									sizes="(max-width: 768px) 100vw, 33vw"
 									fill
 								/>
