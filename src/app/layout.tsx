@@ -1,7 +1,7 @@
 import { Particles } from '@/components/particles';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
-import { siteConfig } from '@/config/site';
 import { geist } from '@/styles/fonts';
+import { siteConfig } from '@/config/site';
 import type { LayoutProps } from '@/types';
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
@@ -9,15 +9,15 @@ import '@/styles/globals.css';
 export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
 	title: {
-		default: siteConfig.title,
-		template: `%s | ${siteConfig.title}`,
+		default: siteConfig.siteTitle,
+		template: `%s | ${siteConfig.siteTitle}`,
 	},
-	description: siteConfig.description,
+	description: siteConfig.subtitle,
 	openGraph: {
-		title: siteConfig.title,
-		description: siteConfig.description,
+		title: siteConfig.siteTitle,
+		description: siteConfig.subtitle,
 		url: siteConfig.url,
-		siteName: siteConfig.name,
+		siteName: siteConfig.title,
 		images: {
 			url: `${siteConfig.url}/opengraph-image.png`,
 			width: 1920,
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 		type: 'website',
 	},
 	twitter: {
-		title: siteConfig.title,
-		description: siteConfig.description,
+		title: siteConfig.siteTitle,
+		description: siteConfig.subtitle,
 		card: 'summary_large_image',
 		images: `${siteConfig.url}/opengraph-image.png`,
 	},
@@ -52,15 +52,15 @@ export const metadata: Metadata = {
 	keywords: ['Next.js', 'Vercel', 'Web', 'Apps', 'Sexy', 'Full-stack'],
 	authors: [
 		{
-			name: siteConfig.name,
+			name: siteConfig.title,
 			url: siteConfig.url,
 		},
 	],
 	category: 'portfolio',
-	creator: siteConfig.name,
-	publisher: siteConfig.name,
+	creator: siteConfig.title,
+	publisher: siteConfig.title,
 	generator: 'Next.js',
-	applicationName: siteConfig.name,
+	applicationName: siteConfig.title,
 	referrer: 'origin-when-cross-origin',
 	colorScheme: 'dark',
 };
@@ -70,6 +70,7 @@ export default function RootLayout({ children }: LayoutProps) {
 		<html lang="en">
 			<body className={geist.className}>
 				<VercelAnalytics />
+
 				<Particles className="absolute inset-0 -z-10 opacity-80 select-none" />
 
 				{children}

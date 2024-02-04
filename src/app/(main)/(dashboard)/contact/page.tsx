@@ -1,55 +1,28 @@
 import { Icon, Icons } from '@/components/icons';
 import { Plus } from '@/components/plus';
+import { getContact } from '@/sanity/lib';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'Contact',
-	description: 'dev@sendzha.com',
+	description: "Let's connect",
 };
 
-const contact = [
-	{
-		type: 'Business email',
-		label: 'dev@sendzha.com',
-		href: 'mailto:dev@sendzha.com',
-		icon: 'mail',
-	},
-	{
-		type: 'Github',
-		label: 'sench-a',
-		href: 'https://github.com/sench-a',
-		icon: 'github',
-	},
-	{
-		icon: 'telegram',
-		type: 'Telegram',
-		label: '@aproskura1',
-	},
+export default async function ContactPage() {
+	const contact = await getContact();
 
-	{
-		icon: 'instagram',
-		type: 'Instagram',
-		href: 'https://instagram.com/sendzh.a',
-		label: '@sendzh.a',
-	},
-];
-
-export default function ContactPage() {
 	return (
-		<ul className="grid md:grid-cols-2 w-full gap-8 pb-8">
-			{contact.map((link) => {
-				const Icon = Icons[link.icon as Icon];
+		<ul className="grid md:grid-cols-3 w-full gap-8 pb-8">
+			{contact.items.map((item) => {
+				console.log(item);
+				const Icon = Icons[item.type as Icon] ?? Icons.webhook;
 
 				return (
 					<li
-						key={link.label}
+						key={item.title}
 						className="relative animate-fade bg-card border rounded-[4px]"
 					>
-						<a
-							href={link.href}
-							target={link.href ?? 'blank'}
-							className="p-10 flex flex-col items-center gap-3"
-						>
+						<div className="p-10 flex flex-col items-center gap-3">
 							<Plus />
 
 							<div
@@ -68,16 +41,16 @@ export default function ContactPage() {
 								className="z-10 font-medium drop-shadow-sm tracking-tight"
 								style={{ fontSize: 'clamp(20px, 2.5vw, 24px)' }}
 							>
-								{link.label}
+								{item.title}
 							</h3>
 
 							<p
-								className="text-center text-muted-foreground"
+								className="text-center text-muted-foreground capitalize"
 								style={{ fontSize: 'clamp(14px, 2.5vw, 16px)' }}
 							>
-								{link.type}
+								{item.type}
 							</p>
-						</a>
+						</div>
 					</li>
 				);
 			})}

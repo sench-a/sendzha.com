@@ -17,7 +17,7 @@ export default function HomePage() {
 						fontSize: 'clamp(64px, 10vw, 96px)',
 					}}
 				>
-					{siteConfig.name}
+					{siteConfig.title}
 				</h1>
 				<div
 					className="h-px animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0"
@@ -28,7 +28,7 @@ export default function HomePage() {
 					className="mt-4 text-muted-foreground tracking-normal animate-fade-in"
 					style={{ fontSize: 'clamp(16px, 2.5vw, 20px)' }}
 				>
-					{siteConfig.description}
+					{siteConfig.subtitle}
 				</h2>
 
 				<nav className="mt-8 space-y-4 animate-fade-in">

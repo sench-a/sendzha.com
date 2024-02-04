@@ -33,6 +33,8 @@
 		--border: 0 0% 14.9%;
 		--input: 0 0% 14.9%;
 		--ring: 0 0% 83.1%;
+
+		--radius: 0.5rem;
 	}
 }
 
@@ -51,5 +53,9 @@
 
 	.animate-fade {
 		@apply animate-in fade-in-0 duration-300;
+	}
+
+	.max-width-screen {
+		@apply px-4 max-w-screen-xl mx-auto;
 	}
 }
