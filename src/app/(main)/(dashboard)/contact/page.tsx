@@ -14,7 +14,6 @@ export default async function ContactPage() {
 	return (
 		<ul className="grid md:grid-cols-3 w-full gap-8 pb-8">
 			{contact.items.map((item) => {
-				console.log(item);
 				const Icon = Icons[item.type as Icon] ?? Icons.webhook;
 
 				return (

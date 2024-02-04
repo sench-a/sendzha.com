@@ -62,7 +62,6 @@ export const metadata: Metadata = {
 	generator: 'Next.js',
 	applicationName: siteConfig.title,
 	referrer: 'origin-when-cross-origin',
-	colorScheme: 'dark',
 };
 
 export default function RootLayout({ children }: LayoutProps) {
