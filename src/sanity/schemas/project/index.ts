@@ -34,10 +34,10 @@ export default defineType({
 			type: 'array',
 			of: [
 				defineArrayMember({
-					name: 'item',
-					title: 'Tech',
-					type: 'object',
-					fields: [title, link],
+					name: 'title',
+					title: 'Title',
+					type: 'string',
+					validation: (Rule) => Rule.required(),
 				}),
 			],
 		}),

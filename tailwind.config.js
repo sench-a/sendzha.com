@@ -56,6 +56,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+       
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -103,7 +104,7 @@ module.exports = {
 						opacity: "0%",
 					},
 				},
-        title: {
+        "title": {
 					"0%": {
 						"line-height": "0%",
 						"letter-spacing": "0.25em",
@@ -122,12 +123,21 @@ module.exports = {
 						opacity: "100%",
 					},
 				},
+        "shimmer": {
+          "0%": {
+            backgroundPosition: "0 0",
+          },
+          "100%": {
+            backgroundPosition: "-200% 0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 2.5s ease-in-out forwards",
-				title: "title 2s ease-out forwards",
+				"title": "title 2s ease-out forwards",
+        "shimmer": "shimmer 2s linear infinite",
 				"fade-left": "fade-left 2s ease-in-out forwards",
 				"fade-right": "fade-right 2s ease-in-out forwards",
       },

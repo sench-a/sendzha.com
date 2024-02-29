@@ -36,7 +36,7 @@ export default function HomePage() {
 						return (
 							<Button
 								key={nav.route}
-								className={cn('last:border w-full', {
+								className={cn('last:border', {
 									'bg-primary hover:bg-white/80 text-black': !index,
 								})}
 								variant="ghost"

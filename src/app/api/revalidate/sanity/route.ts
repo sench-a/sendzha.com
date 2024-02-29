@@ -20,7 +20,7 @@ export async function POST(request: Request): Promise<Response> {
 		return new Response('Invalid signature', { status: 401 });
 	}
 
-	revalidatePath('/', 'layout');
+	revalidatePath('/(main)', 'layout');
 
 	return new Response(null, { status: 200 });
 }

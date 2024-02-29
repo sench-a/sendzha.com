@@ -30,7 +30,7 @@ export default async function ProjectsPage() {
 					return (
 						<li
 							key={project._id}
-							className="relative flex flex-col gap-4 p-4 border bg-card rounded-sm"
+							className="relative flex flex-col gap-4 p-4 border bg-card"
 						>
 							<Plus />
 
@@ -38,7 +38,7 @@ export default async function ProjectsPage() {
 								<Image
 									src={createSanityImageUrl(project.image)}
 									alt={`${project.title} website thumbnail`}
-									className="bg-accent object-cover object-center border rounded-sm"
+									className="bg-accent object-cover object-center border"
 									blurDataURL={project.image.blurDataUrl}
 									sizes="(max-width: 768px) 100vw, 33vw"
 									placeholder="blur"
@@ -46,39 +46,33 @@ export default async function ProjectsPage() {
 								/>
 							</AspectRatio>
 
-							<div className="px-1 space-y-4">
+							<div className="px-1 flex flex-col justify-between h-full">
 								<div className="flex flex-row items-center justify-between">
 									<h2 className="text-xl font-bold tracking-tight">
 										{project.title}
 									</h2>
 
-									<Button
-										asChild
-										size="sm"
-										className="w-fit text-sm"
+									<Link
+										href={project.link}
+										target="blank"
+										className="inline-flex h-9 px-3 animate-shimmer items-center justify-center rounded-full border-slate-800 text-primary-foreground text-sm bg-[linear-gradient(110deg,#FFF,45%,#E5E5E5,55%,#FFF)] bg-[length:200%_100%] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
 									>
-										<Link
-											href={project.link}
-											target="blank"
-										>
-											Visit
-										</Link>
-									</Button>
+										Visit
+									</Link>
 								</div>
 
-								<p className="text-sm text-muted-foreground">
+								<p className="mt-1 text-sm text-muted-foreground">
 									{project.description}
 								</p>
 
-								<div className="flex flex-wrap flex-row gap-1.5">
+								<div className="mt-3 flex flex-wrap flex-row gap-1.5">
 									{project.stack.map((item) => (
-										<Link
+										<Badge
 											key={item.key}
-											href={item.link}
-											target="blank"
+											variant="secondary"
 										>
-											<Badge variant="secondary">{item.title}</Badge>
-										</Link>
+											{item.title}
+										</Badge>
 									))}
 								</div>
 							</div>
