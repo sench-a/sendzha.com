@@ -14,18 +14,21 @@ export const Nav = () => {
 		<nav className="fade relative flex flex-row items-center gap-4">
 			{siteConfig.nav.map((nav) => {
 				const isActiveRoute = nav.route === pathname;
+				const isDisabled = nav.disabled;
 
 				return (
 					<Button
 						key={nav.route}
 						variant="ghost"
 						className="relative px-3 py-2 text-base"
+						disabled={isDisabled}
 						asChild
 					>
-						<Link href={nav.route}>
+						<Link href={!isDisabled ? nav.route : ''}>
 							<p
 								className={cn('z-10 tracking-tight', {
 									'text-primary-foreground': isActiveRoute,
+									'opacity-60': isDisabled,
 								})}
 							>
 								{nav.title}

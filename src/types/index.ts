@@ -13,7 +13,7 @@ export interface Project extends SanityDocument {
 	link: string;
 	image: Image;
 	description: string;
-	stack: Array<{ key: string; title: string; link: string }>;
+	stack: string[];
 }
 
 export interface Contact extends SanityDocument {

@@ -6,7 +6,7 @@ export default function DashboardLayout({ children }: LayoutProps) {
 	return (
 		<>
 			<header className="max-width-screen">
-				<nav className="py-8 flex flex-row items-center justify-between">
+				<nav className="py-6 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
 					<BackButton />
 					<Nav />
 				</nav>

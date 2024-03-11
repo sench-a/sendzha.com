@@ -8,5 +8,5 @@ const imageBuilder = createImageUrlBuilder({
 });
 
 export const createSanityImageUrl = (source: SanityImage): string => {
-	return imageBuilder?.image(source).quality(100).format('webp').url();
+	return imageBuilder?.image(source).quality(100).format('webp').size(1920, 1080).url();
 };
