@@ -2,12 +2,26 @@ import { Icons } from '@/components/icons';
 import { link, title } from '@/sanity/schemas/fragments';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
+export const projectTypes = [
+	{ title: 'Professional', value: 'professional' },
+	{ title: 'Personal', value: 'personal' },
+];
+
 export default defineType({
 	name: 'project',
 	title: 'Projects',
 	type: 'document',
 	icon: Icons.project,
 	fields: [
+		defineField({
+			name: 'type',
+			type: 'string',
+			options: {
+				list: projectTypes,
+			},
+			validation: (Rule) => Rule.required(),
+		}),
+
 		title,
 		link,
 

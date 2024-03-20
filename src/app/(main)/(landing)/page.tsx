@@ -32,7 +32,11 @@ export default function HomePage() {
 				</h2>
 
 				<nav className="mt-8 space-y-4 animate-fade-in">
-					{/* {siteConfig.nav.map((nav, index) => {
+					{siteConfig.nav.map((nav, index) => {
+						if (nav.disabled) {
+							return null;
+						}
+
 						return (
 							<Button
 								key={nav.route}
@@ -46,14 +50,7 @@ export default function HomePage() {
 								<Link href={nav.route}>{nav.title}</Link>
 							</Button>
 						);
-					})} */}
-
-					<Button
-						size="lg"
-						asChild
-					>
-						<Link href="/projects">Continue</Link>
-					</Button>
+					})}
 				</nav>
 			</main>
 		</section>

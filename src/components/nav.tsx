@@ -1,54 +1,66 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/utils';
+import { cn, createUrl } from '@/lib/utils';
 
 export const Nav = () => {
 	const pathname = usePathname();
+	const searchParams = useSearchParams();
 
 	return (
-		<nav className="fade relative flex flex-row items-center gap-4">
-			{siteConfig.nav.map((nav) => {
-				const isActiveRoute = nav.route === pathname;
-				const isDisabled = nav.disabled;
+		<nav className="py-6 gap-6 flex flex-row items-center justify-between">
+			<Link href="/">
+				<div className="flex items-center gap-1 text-muted-foreground hover:text-primary duration-300">
+					<Icons.back size="16" />
+					<p className="text-sm">Back</p>
+				</div>
+			</Link>
 
-				return (
-					<Button
-						key={nav.route}
-						variant="ghost"
-						className="relative px-3 py-2 text-base"
-						disabled={isDisabled}
-						asChild
-					>
-						<Link href={!isDisabled ? nav.route : ''}>
-							<p
-								className={cn('z-10 tracking-tight', {
-									'text-primary-foreground': isActiveRoute,
-									'opacity-60': isDisabled,
-								})}
-							>
-								{nav.title}
-							</p>
+			<div className="fade relative flex flex-row items-center gap-3">
+				{siteConfig.nav.map((nav) => {
+					const isActiveRoute = nav.route === pathname;
 
-							{nav.route === pathname ? (
-								<motion.div
-									className="absolute inset-0 bg-primary rounded-full"
-									layoutId="sidebar"
-									transition={{
-										type: 'spring',
-										stiffness: 350,
-										damping: 30,
-									}}
-								/>
-							) : null}
-						</Link>
-					</Button>
-				);
-			})}
+					if (nav.disabled) {
+						return null;
+					}
+
+					return (
+						<Button
+							key={nav.route}
+							variant="ghost"
+							className="relative px-3 py-2 text-base"
+							asChild
+						>
+							<Link href={createUrl(nav.route, searchParams.toString())}>
+								<p
+									className={cn('z-10 tracking-tight', {
+										'text-primary-foreground': isActiveRoute,
+									})}
+								>
+									{nav.title}
+								</p>
+
+								{nav.route === pathname ? (
+									<motion.div
+										className="absolute inset-0 bg-primary rounded-full"
+										layoutId="sidebar"
+										transition={{
+											type: 'spring',
+											stiffness: 350,
+											damping: 30,
+										}}
+									/>
+								) : null}
+							</Link>
+						</Button>
+					);
+				})}
+			</div>
 		</nav>
 	);
 };

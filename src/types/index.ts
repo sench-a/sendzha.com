@@ -9,6 +9,7 @@ export interface Image extends SanityImage {
 }
 
 export interface Project extends SanityDocument {
+	type: string;
 	title: string;
 	link: string;
 	image: Image;
