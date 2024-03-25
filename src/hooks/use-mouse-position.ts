@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-interface MousePosition {
+type MousePosition = {
 	x: number;
 	y: number;
-}
+};
 
-export const useMousePosition = (): MousePosition => {
+export function useMousePosition(): MousePosition {
 	const [mousePosition, setMousePosition] = useState<MousePosition>({
 		x: 0,
 		y: 0,
@@ -24,4 +24,4 @@ export const useMousePosition = (): MousePosition => {
 	}, []);
 
 	return mousePosition;
-};
+}

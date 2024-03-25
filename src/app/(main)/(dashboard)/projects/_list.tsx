@@ -20,9 +20,9 @@ import { projectTypes } from '@/sanity/schemas/project';
 import { createUrl } from '@/lib/utils';
 import type { Project } from '@/types';
 
-interface ProjectsListProps {
+type ProjectsListProps = {
 	projects: Project[];
-}
+};
 
 export const ProjectsList = ({ projects }: ProjectsListProps) => {
 	const router = useRouter();

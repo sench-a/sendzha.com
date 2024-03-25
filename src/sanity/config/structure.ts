@@ -8,10 +8,7 @@ interface StructureItem {
 	icon: Icon;
 }
 
-const singletons: StructureItem[] = [
-	// { title: 'Config', type: 'config', icon: 'config' },
-	{ title: 'Contact', type: 'contact', icon: 'contact' },
-];
+const singletons: StructureItem[] = [{ title: 'Contact', type: 'contact', icon: 'contact' }];
 const lists: StructureItem[] = [{ title: 'Projects', type: 'project', icon: 'project' }];
 
 export const structure = (S: StructureBuilder) =>

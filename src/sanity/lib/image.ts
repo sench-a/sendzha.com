@@ -7,6 +7,6 @@ const imageBuilder = createImageUrlBuilder({
 	dataset,
 });
 
-export const createSanityImageUrl = (source: SanityImage): string => {
+export function createSanityImageUrl(source: SanityImage): string {
 	return imageBuilder?.image(source).quality(100).format('webp').size(1920, 1080).url();
-};
+}

@@ -1,14 +1,14 @@
 import type { SanityDocument, Image as SanityImage } from 'sanity';
 
-export interface LayoutProps {
+export type LayoutProps = {
 	children: React.ReactNode;
-}
+};
 
-export interface Image extends SanityImage {
+export type Image = SanityImage & {
 	blurDataUrl: string; // https://nextjs.org/docs/app/api-reference/components/image#blurdataurl
-}
+};
 
-export interface Project extends SanityDocument {
+export type Project = SanityDocument & {
 	type: string;
 	title: string;
 	link: string;
@@ -16,14 +16,10 @@ export interface Project extends SanityDocument {
 	image: Image;
 	description: string;
 	stack: Array<{ _key: string; title: string; description?: string }>;
-}
+};
 
-export interface Contact extends SanityDocument {
-	items: Array<{ _key: string; title: string; type: string }>;
-}
+export type Contact = SanityDocument & {
+	items: ContactItem[];
+};
 
-export interface Config extends SanityDocument {
-	title: string;
-	subtitle: string;
-	siteTitle: string;
-}
+export type ContactItem = { _key: string; title: string; type: string };

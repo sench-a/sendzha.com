@@ -1,5 +1,3 @@
-import { Particles } from '@/components/particles';
-import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { geist } from '@/styles/fonts';
 import { siteConfig } from '@/config/site';
 import type { LayoutProps } from '@/types';
@@ -67,13 +65,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps) {
 	return (
 		<html lang="en">
-			<body className={geist.className}>
-				<VercelAnalytics />
-
-				<Particles className="absolute inset-0 -z-10 opacity-80 select-none" />
-
-				{children}
-			</body>
+			<body className={geist.className}>{children}</body>
 		</html>
 	);
 }
