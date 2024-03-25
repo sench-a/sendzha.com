@@ -47,7 +47,7 @@ export const ProjectsList = ({ projects }: ProjectsListProps) => {
 			: projects;
 
 	return (
-		<div className="mt-6 space-y-6">
+		<div className="my-6 space-y-6">
 			<div className="flex w-full justify-end">
 				<Select
 					value={SELECTED_TYPE}
@@ -72,7 +72,7 @@ export const ProjectsList = ({ projects }: ProjectsListProps) => {
 				</Select>
 			</div>
 
-			<ul className="grid md:grid-cols-2 w-full gap-6 pb-8">
+			<ul className="grid md:grid-cols-2 w-full gap-6">
 				{filteredProjects.map((project) => (
 					<ProjectCard
 						key={project._id}
@@ -80,6 +80,10 @@ export const ProjectsList = ({ projects }: ProjectsListProps) => {
 					/>
 				))}
 			</ul>
+
+			<div className="flex justify-end md:hidden">
+				<ScrollToTopButton />
+			</div>
 		</div>
 	);
 };
@@ -149,5 +153,21 @@ const ProjectCard = ({ project }: { project: Project }) => {
 				</TooltipProvider>
 			</div>
 		</li>
+	);
+};
+
+const ScrollToTopButton = () => {
+	const handleClick = (): void => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	};
+
+	return (
+		<button
+			onClick={handleClick}
+			className="h-12 w-12 flex items-center justify-center rounded-full shadow-sm duration-300 bg-background hover:bg-accent border text-primary"
+			aria-label="Scroll to top button"
+		>
+			<Icons.chevronUp strokeWidth={1.75} />
+		</button>
 	);
 };

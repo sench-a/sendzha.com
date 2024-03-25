@@ -6,24 +6,26 @@ import {
 	Send,
 	Code,
 	Github,
+	Webhook,
+	ChevronUp,
 	Instagram,
 	ChevronLeft,
 	SmartphoneNfc,
-	Webhook,
 } from 'lucide-react';
 
 export const Icons = {
-	email: Mail,
-	github: Github,
 	link: Link,
-	back: ChevronLeft,
 	plus: Plus,
-	telegram: Send,
-	instagram: Instagram,
-	project: Code,
 	config: Cog,
-	contact: SmartphoneNfc,
+	email: Mail,
+	project: Code,
+	telegram: Send,
+	github: Github,
 	webhook: Webhook,
+	back: ChevronLeft,
+	instagram: Instagram,
+	chevronUp: ChevronUp,
+	contact: SmartphoneNfc,
 };
 
 export type Icon = keyof typeof Icons;

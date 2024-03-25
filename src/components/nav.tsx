@@ -45,7 +45,7 @@ export const Nav = () => {
 									{nav.title}
 								</p>
 
-								{nav.route === pathname ? (
+								{isActiveRoute ? (
 									<motion.div
 										className="absolute inset-0 bg-primary rounded-full"
 										layoutId="sidebar"
