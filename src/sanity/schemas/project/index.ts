@@ -26,6 +26,12 @@ export default defineType({
 		link,
 
 		defineField({
+			name: 'github',
+			title: 'GitHub',
+			type: 'url',
+		}),
+
+		defineField({
 			name: 'description',
 			title: 'Description',
 			type: 'text',
@@ -48,10 +54,16 @@ export default defineType({
 			type: 'array',
 			of: [
 				defineArrayMember({
-					name: 'title',
-					title: 'Title',
-					type: 'string',
-					validation: (Rule) => Rule.required(),
+					name: 'item',
+					type: 'object',
+					fields: [
+						title,
+						defineField({
+							name: 'description',
+							title: 'Description',
+							type: 'text',
+						}),
+					],
 				}),
 			],
 		}),

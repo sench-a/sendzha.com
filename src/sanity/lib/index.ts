@@ -12,7 +12,7 @@ export const sanityFetch = async <T>(query: string): Promise<T | never> => {
 
 export const getProjects = async (): Promise<Project[]> => {
 	const query = groq`
-		*[_type=='project'] | order(_updatedAt desc) {
+		*[_type=='project'] | order(_createdAt asc) {
 			...,
 			image {
 				...,      

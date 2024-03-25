@@ -1,4 +1,4 @@
-import type { SanityDocument, Image as SanityImage, Slug } from 'sanity';
+import type { SanityDocument, Image as SanityImage } from 'sanity';
 
 export interface LayoutProps {
 	children: React.ReactNode;
@@ -12,13 +12,14 @@ export interface Project extends SanityDocument {
 	type: string;
 	title: string;
 	link: string;
+	github?: string;
 	image: Image;
 	description: string;
-	stack: string[];
+	stack: Array<{ _key: string; title: string; description?: string }>;
 }
 
 export interface Contact extends SanityDocument {
-	items: Array<{ key: string; title: string; type: string }>;
+	items: Array<{ _key: string; title: string; type: string }>;
 }
 
 export interface Config extends SanityDocument {

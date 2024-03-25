@@ -11,8 +11,10 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 import { Plus } from '@/components/plus';
+import { Icons } from '@/components/icons';
 import { Badge } from '@/components/ui/badge';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { createSanityImageUrl } from '@/sanity/lib/image';
 import { projectTypes } from '@/sanity/schemas/project';
 import { createUrl } from '@/lib/utils';
@@ -35,6 +37,7 @@ export const ProjectsList = ({ projects }: ProjectsListProps) => {
 		params.set('type', value);
 
 		const url = createUrl('/projects', params.toString());
+
 		router.replace(url);
 	}
 
@@ -102,27 +105,51 @@ const ProjectCard = ({ project }: { project: Project }) => {
 				<div className="flex flex-row items-center justify-between">
 					<h2 className="text-xl font-bold tracking-tight">{project.title}</h2>
 
-					<Link
-						href={project.link}
-						target="blank"
-						className="inline-flex h-9 px-3 animate-shimmer items-center justify-center rounded-full border-slate-800 text-primary-foreground text-sm bg-[linear-gradient(110deg,#FFF,45%,#F5F5F5,55%,#FFF)] bg-[length:200%_100%] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-					>
-						Visit
-					</Link>
+					<div className="flex flex-row gap-2">
+						<Link
+							href={project.link}
+							target="blank"
+							className="inline-flex h-9 px-3 animate-shimmer items-center justify-center rounded-full border-slate-800 text-primary-foreground text-sm bg-[linear-gradient(110deg,#FFF,45%,#F5F5F5,55%,#FFF)] bg-[length:200%_100%] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+						>
+							Visit
+						</Link>
+
+						{project.github ? (
+							<Link
+								href={project.github}
+								target="blank"
+								className="flex items-center justify-center border rounded-full h-9 w-9 hover:bg-border"
+							>
+								<Icons.github
+									strokeWidth={1.5}
+									size={20}
+								/>
+							</Link>
+						) : null}
+					</div>
 				</div>
 
 				<p className="text-sm text-muted-foreground">{project.description}</p>
 
-				<div className="mt-4 flex flex-wrap flex-row gap-1.5">
-					{project.stack.map((item) => (
-						<Badge
-							key={item}
-							variant="secondary"
-						>
-							{item}
-						</Badge>
-					))}
-				</div>
+				<TooltipProvider>
+					<div className="mt-4 flex flex-wrap flex-row gap-1.5">
+						{project.stack.map((item) => (
+							<Tooltip key={item._key}>
+								<TooltipTrigger asChild>
+									<div>
+										<Badge variant="secondary">{item.title}</Badge>
+									</div>
+								</TooltipTrigger>
+
+								{item.description ? (
+									<TooltipContent>
+										<p>{item.description}</p>
+									</TooltipContent>
+								) : null}
+							</Tooltip>
+						))}
+					</div>
+				</TooltipProvider>
 			</div>
 		</li>
 	);

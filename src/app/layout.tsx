@@ -9,12 +9,12 @@ import '@/styles/globals.css';
 export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
 	title: {
-		default: siteConfig.siteTitle,
-		template: `%s | ${siteConfig.siteTitle}`,
+		default: siteConfig.site_title,
+		template: `%s | ${siteConfig.site_title}`,
 	},
 	description: siteConfig.subtitle,
 	openGraph: {
-		title: siteConfig.siteTitle,
+		title: siteConfig.site_title,
 		description: siteConfig.subtitle,
 		url: siteConfig.url,
 		siteName: siteConfig.title,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 		type: 'website',
 	},
 	twitter: {
-		title: siteConfig.siteTitle,
+		title: siteConfig.site_title,
 		description: siteConfig.subtitle,
 		card: 'summary_large_image',
 		images: `${siteConfig.url}/opengraph-image.png`,

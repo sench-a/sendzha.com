@@ -18,7 +18,7 @@ export default async function ContactPage() {
 
 				return (
 					<li
-						key={item.title}
+						key={item._key}
 						className="relative animate-fade bg-card/80 border"
 					>
 						<div className="p-10 flex flex-col items-center gap-3">
