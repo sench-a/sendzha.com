@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { siteConfig } from '@/config/site';
+import { siteConfig, navigation } from '@/config/site';
 import { cn } from '@/lib/utils';
 
 export default function HomePage() {
@@ -32,7 +32,7 @@ export default function HomePage() {
 				</h2>
 
 				<nav className="mt-8 space-y-4 animate-fade-in">
-					{siteConfig.nav.map((nav, index) => {
+					{navigation.map((nav, index) => {
 						if (nav.disabled) {
 							return null;
 						}

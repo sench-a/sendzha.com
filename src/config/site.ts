@@ -5,9 +5,13 @@ export const siteConfig = {
 	subtitle: 'On vacation in Java',
 	site_title: 'sendzha | software engineer',
 	url: env.NEXT_PUBLIC_URL,
-	nav: [
-		{ title: 'Projects', route: '/projects', disabled: false },
-		{ title: 'Contact', route: '/contact', disabled: false },
-		{ title: 'Posts', route: '/blog', disabled: true },
-	],
+	routes: {
+		projects: '/projects',
+		contact: '/contact',
+	},
 };
+
+export const navigation = [
+	{ title: 'Projects', route: siteConfig.routes.projects, disabled: false },
+	{ title: 'Contact', route: siteConfig.routes.contact, disabled: false },
+];

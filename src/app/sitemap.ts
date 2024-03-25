@@ -1,4 +1,4 @@
-import { siteConfig } from '@/config/site';
+import { siteConfig, navigation } from '@/config/site';
 import type { MetadataRoute } from 'next';
 
 const date = new Date().toISOString().split('T')[0];
@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		lastModified: date,
 	};
 
-	const routes = siteConfig.nav.map((nav) => ({
+	const routes = navigation.map((nav) => ({
 		url: `${siteConfig.url}${nav.route}`,
 		lastModified: date,
 	}));

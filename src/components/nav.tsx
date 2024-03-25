@@ -5,7 +5,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
-import { siteConfig } from '@/config/site';
+import { navigation } from '@/config/site';
 import { cn, createUrl } from '@/lib/utils';
 
 export const Nav = () => {
@@ -22,7 +22,7 @@ export const Nav = () => {
 			</Link>
 
 			<div className="fade relative flex flex-row items-center gap-3">
-				{siteConfig.nav.map((nav) => {
+				{navigation.map((nav) => {
 					const isActiveRoute = nav.route === pathname;
 
 					if (nav.disabled) {

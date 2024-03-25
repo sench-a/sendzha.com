@@ -17,6 +17,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { createSanityImageUrl } from '@/sanity/lib/image';
 import { projectTypes } from '@/sanity/schemas/project';
+import { siteConfig } from '@/config/site';
 import { createUrl } from '@/lib/utils';
 import type { Project } from '@/types';
 
@@ -36,7 +37,7 @@ export const ProjectsList = ({ projects }: ProjectsListProps) => {
 		const params = new URLSearchParams(searchParams.toString());
 		params.set('type', value);
 
-		const url = createUrl('/projects', params.toString());
+		const url = createUrl(siteConfig.routes.projects, params.toString());
 
 		router.replace(url);
 	}
@@ -81,16 +82,18 @@ export const ProjectsList = ({ projects }: ProjectsListProps) => {
 				))}
 			</ul>
 
-			<div className="flex justify-end md:hidden">
-				<ScrollToTopButton />
-			</div>
+			{filteredProjects.length >= 3 ? (
+				<div className="flex justify-end md:hidden">
+					<ScrollToTopButton />
+				</div>
+			) : null}
 		</div>
 	);
 };
 
 const ProjectCard = ({ project }: { project: Project }) => {
 	return (
-		<li className="relative flex flex-col gap-4 p-3 border bg-card/80 rounded-sm">
+		<li className="relative animate-fade flex flex-col gap-4 p-3 border bg-card/80 rounded-sm">
 			<Plus />
 
 			<AspectRatio ratio={16 / 9}>
