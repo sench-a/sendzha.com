@@ -86,7 +86,7 @@ export const ProjectsList = ({ projects }: ProjectsListProps) => {
 
 const ProjectCard = ({ project }: { project: Project }) => {
 	return (
-		<li className="relative flex flex-col gap-4 p-4 border bg-card/80 rounded-sm">
+		<li className="relative flex flex-col gap-4 p-3 border bg-card/80 rounded-sm">
 			<Plus />
 
 			<AspectRatio ratio={16 / 9}>
@@ -94,8 +94,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
 					src={createSanityImageUrl(project.image)}
 					alt={`${project.title} website thumbnail`}
 					className="bg-accent object-cover object-center border rounded-sm"
-					blurDataURL={project.image.blurDataUrl}
 					sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw"
+					blurDataURL={project.image.blurDataUrl}
 					placeholder="blur"
 					fill
 				/>
@@ -109,7 +109,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 						<Link
 							href={project.link}
 							target="blank"
-							className="inline-flex h-9 px-3 animate-shimmer items-center justify-center rounded-full border-slate-800 text-primary-foreground text-sm bg-[linear-gradient(110deg,#FFF,45%,#F5F5F5,55%,#FFF)] bg-[length:200%_100%] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+							className="flex h-9 px-3 animate-shimmer items-center justify-center rounded-full border-slate-800 text-primary-foreground text-sm bg-[linear-gradient(110deg,#FFF,45%,#F5F5F5,55%,#FFF)] bg-[length:200%_100%] font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
 						>
 							Visit
 						</Link>
@@ -120,10 +120,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 								target="blank"
 								className="flex items-center justify-center border rounded-full h-9 w-9 hover:bg-border"
 							>
-								<Icons.github
-									strokeWidth={1.5}
-									size={20}
-								/>
+								<Icons.github size={18} />
 							</Link>
 						) : null}
 					</div>
