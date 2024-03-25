@@ -93,7 +93,7 @@ export const ProjectsList = ({ projects }: ProjectsListProps) => {
 
 const ProjectCard = ({ project }: { project: Project }) => {
 	return (
-		<li className="relative animate-fade flex flex-col gap-4 p-3 border bg-card/80 rounded-sm">
+		<li className="relative animate-fade flex flex-col gap-4 p-3 border bg-card/90 rounded-sm">
 			<Plus />
 
 			<AspectRatio ratio={16 / 9}>
@@ -160,9 +160,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 const ScrollToTopButton = () => {
-	const handleClick = (): void => {
+	function handleClick(): void {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
-	};
+	}
 
 	return (
 		<button

@@ -30,7 +30,7 @@ const ContactCard = ({ item }: { item: ContactItem }) => {
 	const Icon = Icons[item.type as Icon] ?? Icons.webhook;
 
 	return (
-		<li className="relative animate-fade bg-card/80 border">
+		<li className="relative animate-fade bg-card/90 border">
 			<div className="p-10 flex flex-col items-center gap-3">
 				<Plus />
 
