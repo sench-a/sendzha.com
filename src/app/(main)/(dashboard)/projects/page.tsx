@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { ProjectsList } from './_list';
+import { ProjectsList } from '@/components/project/list';
 import { getProjects } from '@/sanity/lib';
 import type { Metadata } from 'next';
 

@@ -10,3 +10,7 @@ export function createUrl(pathname: string, searchParams: string): string {
 
 	return `${pathname}${searchQuery}`;
 }
+
+export function capitalizeFirstLetter(input: string) {
+	return input.charAt(0).toUpperCase() + input.slice(1);
+}

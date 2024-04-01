@@ -1,4 +1,5 @@
 import { geist } from '@/styles/fonts';
+import { Toaster } from '@/components/ui/sonner';
 import { Particles } from '@/components/particles';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { siteConfig } from '@/config/site';
@@ -73,6 +74,8 @@ export default function RootLayout({ children }: LayoutProps) {
 				<Particles className="absolute inset-0 -z-10 opacity-80 select-none" />
 
 				{children}
+
+				<Toaster />
 			</body>
 		</html>
 	);
