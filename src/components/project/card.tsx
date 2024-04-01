@@ -32,7 +32,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 				/>
 			</AspectRatio>
 
-			<div className="my-3 px-1 flex flex-col gap-2 h-fit">
+			<div className="mt-3 px-1 flex flex-col gap-2 h-fit">
 				<div className="flex flex-row items-center justify-between">
 					<h2 className="text-xl font-bold tracking-tight">{project.title}</h2>
 
