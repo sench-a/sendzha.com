@@ -58,4 +58,8 @@
 	.max-width-screen {
 		@apply px-4 max-w-screen-xl mx-auto;
 	}
+
+	.card {
+		@apply bg-card/90 relative animate-fade border rounded-sm duration-300;
+	}
 }

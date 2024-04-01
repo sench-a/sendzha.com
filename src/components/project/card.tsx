@@ -17,13 +17,13 @@ type ProjectCardProps = {
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
 	return (
-		<li className="relative animate-fade flex flex-col gap-4 p-3 border bg-card/90 hover:bg-zinc-900 rounded-sm duration-300">
+		<li className="card p-3">
 			<Plus />
 
 			<AspectRatio ratio={16 / 9}>
 				<Image
 					src={createSanityImageUrl(project.image)}
-					alt={`${project.title} website thumbnail`}
+					alt={`${project.title} website Open Graph image`}
 					className="bg-accent object-cover object-center border rounded-sm"
 					sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw"
 					blurDataURL={project.image.blurDataUrl}
@@ -32,7 +32,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 				/>
 			</AspectRatio>
 
-			<div className="px-1 flex flex-col gap-2 h-fit">
+			<div className="my-3 px-1 flex flex-col gap-2 h-fit">
 				<div className="flex flex-row items-center justify-between">
 					<h2 className="text-xl font-bold tracking-tight">{project.title}</h2>
 

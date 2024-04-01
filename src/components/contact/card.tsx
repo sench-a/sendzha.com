@@ -3,7 +3,7 @@
 import { toast } from 'sonner';
 import { Plus } from '@/components/plus';
 import { Icons, type Icon } from '@/components/icons';
-import { capitalizeFirstLetter, cn } from '@/lib/utils';
+import { capitalize, cn } from '@/lib/utils';
 import type { ContactItem } from '@/types';
 
 type ContactCardProps = {
@@ -16,11 +16,11 @@ export const ContactCard = ({ item }: ContactCardProps) => {
 	function copy(item: ContactItem): void {
 		navigator.clipboard.writeText(item.title);
 
-		toast(`${capitalizeFirstLetter(item.type)} has been copied.`);
+		toast(`${capitalize(item.type)} has been copied.`);
 	}
 
 	return (
-		<li className="relative animate-fade bg-card/90 border">
+		<li className="card">
 			<div className="p-10 flex flex-col items-center gap-3">
 				<Plus />
 
@@ -37,7 +37,7 @@ export const ContactCard = ({ item }: ContactCardProps) => {
 				</div>
 
 				<div
-					className="flex items-center gap-2.5 cursor-pointer"
+					className="flex items-center gap-2 md:gap-2.5 cursor-pointer"
 					onClick={() => copy(item)}
 				>
 					<h3
